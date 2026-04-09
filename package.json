@@ -1,0 +1,20 @@
+{
+  "name": "refactor",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "basic": "ts-node src/basic/app.ts",
+    "command": "ts-node src/command/app.ts",
+    "build": "tsc",
+    "start": "node dist/basic/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  }
+}
