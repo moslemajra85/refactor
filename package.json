@@ -1,10 +1,11 @@
 {
   "name": "refactor",
   "version": "1.0.0",
+  "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "basic": "ts-node src/basic/app.ts",
-    "command": "ts-node src/command/app.ts",
+    "basic": "node --loader ts-node/esm src/basic/app.ts",
+    "command": "node --loader ts-node/esm src/command/app.ts",
     "build": "tsc",
     "start": "node dist/basic/app.js"
   },
