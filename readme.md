@@ -1,5 +1,25 @@
 # Command Pattern Notes for Todo App
 
+## Run the implementations
+
+Install dependencies first:
+
+```bash
+npm install
+```
+
+Run the basic todo list implementation:
+
+```bash
+npm run basic
+```
+
+Run the command pattern implementation:
+
+```bash
+npm run command
+```
+
 ## 1. Problems Without the Command Pattern
 
 An action like “add todo” is not represented as an object.
