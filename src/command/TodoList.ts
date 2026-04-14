@@ -1,60 +1,40 @@
-type Todo = {
+export type Todo = {
   id: number;
   title: string;
   completed: boolean;
 };
 
-class TodoList {
+// Receiver
+export class TodoList {
   private todos: Todo[] = [];
   private nextId = 1;
 
   add(title: string): Todo {
-    const todo = {
-      id: this.nextId++,
-      title,
-      completed: false,
-    };
-
+    const todo = { id: this.nextId++, title, completed: false };
     this.todos.push(todo);
-    console.log(`Added: "${title}"`);
     return todo;
   }
 
   remove(id: number): Todo | null {
-    const index = this.todos.findIndex((todo) => todo.id === id);
-
-    if (index === -1) {
-      return null;
-    }
-
-    const removed = this.todos.splice(index, 1)[0]!;
-
-    return removed;
+    const index = this.todos.findIndex((t) => t.id === id);
+    if (index === -1) return null;
+    return this.todos.splice(index, 1)[0]!;
   }
 
-  toggleTodo(id: number): Todo | null {
-    const todo = this.todos.find((todo) => todo.id === id);
-
-    if (!todo) {
-      console.log(`Todo with id: ${id} was not found.`);
-      return null;
-    }
-
-    todo.completed = !todo.completed;
-
-    return todo;
+  toggle(id: number) {
+    const todo = this.todos.find((t) => t.id === id);
+    if (todo) todo.completed = !todo.completed;
   }
 
-  findIndexById(id: number): number {
-    return this.todos.findIndex((todo) => todo.id === id);
-  }
-
-  getTodoById(id: number): Todo | undefined {
-    return this.todos.find((todo) => todo.id === id);
-  }
-
-  insertAt(todo: Todo, index: number): void {
+  insertAt(todo: Todo, index: number) {
     this.todos.splice(index, 0, todo);
-    console.log(`Todo Inserted At location ${index}: ${todo.title}`);
+  }
+
+  findIndexById(id: number) {
+    return this.todos.findIndex((t) => t.id === id);
+  }
+
+  showList() {
+    console.log(this.todos);
   }
 }
